@@ -1,0 +1,6 @@
+<div class="playground__container">
+  <h1 class="fw-bold mb-3">Choose your game</h1>
+  <div class="playground__list">
+    <a role="button" class="playground__item" [routerLink]="game.routing" *ngFor="let game of listOfGames">{{game.name}}</a>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="playground__container bg-info" [ngSwitch]="quizStep">
+  <ng-container *ngSwitchCase="'box_quiz'">
+    <div class="quiz__wrapper">
+      <div class="quiz__header">
+        <h4 class="mb-0">Vua tiếng Việt</h4>
+      </div>
+      <div class="quiz__body">
+        <div class="quiz__question">
+          <span *ngFor="let item of listOfCharacters" class="quiz__character">
+            {{item}}
+          </span>
+        </div>
+        <div class="quiz__hint">
+          Gợi ý: {{currentQuiz.hint}}
+        </div>
+        <div class="quiz__timer {{timeLeft <= 10 ? 'danger__time' : ''}}">
+          Thời hạn: {{timeLeft < 10 ? '0' + timeLeft : timeLeft}}s
+        </div>
+        <div class="quiz__input">
+          <input type="text" name="answer" [disabled]="timeLeft <= 0" [(ngModel)]="userAnswer"
+            (change)="checkAnswer()">
+        </div>
+      </div>
+      <div class="quiz__footer">
+        <button class="btn btn-outline-secondary me-3" (click)="exitGame()">Thoát</button>
+        <button class="btn btn-primary" (click)="changeWord()">Đổi từ</button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'box_rules'">
+    <div class="rules__wrapper">
+      <div class="rules__header">
+        <h4 class="mb-0">Vua tiếng Việt</h4>
+      </div>
+      <div class="rules__body">
+        <ul class="rules__list-decimal">
+          <li>Bạn có <strong class="text-primary">30 giây</strong> để suy nghĩ và trả lời.</li>
+          <li>Khi hết thời gian, ô nhập sẽ bị vô hiệu hóa.</li>
+          <li>Bạn có thể gặp lại câu hỏi chưa hoành thành ở lần đổi từ tiếp theo.</li>
+        </ul>
+      </div>
+      <div class="rules__footer">
+        <button class="btn btn-outline-secondary me-3" (click)="exitGame()">Thoát</button>
+        <button class="btn btn-primary" (click)="beginQuiz()">Bắt đầu</button>
+      </div>
+    </div>
+  </ng-container>
+</div>

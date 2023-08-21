@@ -1,0 +1,21 @@
+.playground__list {
+  width: min(600px, 100%);
+}
+.playground__item {
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: #ddd;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.2s linear;
+  margin-bottom: 0.75rem;
+  &:hover {
+    background: #eee;
+    border-color: #ff8000;
+    color: #ff8000;
+  }
+}
