@@ -55,8 +55,8 @@ export class VuaTiengVietComponent implements OnInit {
       hint: "Những ánh mắt ngô nghê, những nụ cười ngờ nghệch"
     },
     {
-      answer: "CÁ SẶC",
-      hint: "Nhìn giống con voi, to như con voi, có vòi có mũi, nhưng lại đen thui"
+      answer: "LÁNH VÀO ĐỒN",
+      hint: "Chạy nhanh đi trước khi mọi chuyện tồi tệ hơn"
     },
   ];
   countdownTimer: any;
@@ -115,7 +115,7 @@ export class VuaTiengVietComponent implements OnInit {
   }
 
   exitGame() {
-    this.router.navigate(["/playground"])
+    this.router.navigate(["/.."])
   }
 
 }

@@ -191,6 +191,10 @@ export class QuizGameComponent implements OnInit {
 
   }
 
+  back() {
+    this.router.navigate(["/.."])
+  }
+
   showTheNext() {
     if (this.quizCount < this.listOfQuiz.length) {
       this.timeline = 0;

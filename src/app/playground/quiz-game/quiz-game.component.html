@@ -23,6 +23,7 @@
         <div class="me-auto" style="line-height: 38px;">
           {{quizCount}} of {{listOfQuiz.length}} questions
         </div>
+        <button class="btn btn-outline-secondary" (click)="back()">Exit</button>
         <button class="btn btn-primary" *ngIf="quizCount < listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="showTheNext()">Next quiz</button>
         <button class="btn btn-primary" *ngIf="quizCount === listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="completeQuiz()">View score</button>
       </div>
