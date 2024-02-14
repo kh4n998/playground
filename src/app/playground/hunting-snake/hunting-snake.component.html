@@ -1,0 +1,26 @@
+<div class="playground__container vertical__gb bg-secondary">
+  <div class="score__block">
+    <h2 class="score__label">SCORE</h2>
+    <div class="score__value">{{currScore}}</div>
+    <div class="group-controls">
+      <button class="control" (click)="resetGame()">Reset</button>
+      <button class="control" (click)="pauseGame(true)">Pause</button>
+    </div>
+  </div>
+  <div class="position-relative">
+    <div class="map__wrapper" #gameBoard>
+    </div>
+    <div class="guide" [class.d-none]="!paused">
+      <h6>Rules:</h6>
+      <ol>
+        <li>Use left/right/up/down arrow to move</li>
+        <li>If you bite yourself or crash into the wall, game over</li>
+        <li>When you get 10, 20 or 30 points, the speed will increase</li>
+      </ol>
+      <div class="group-controls justify-content-end">
+        <button class="control" (click)="exitGame()">Exit</button>
+      <button class="control" (click)="pauseGame(false)">Start</button>
+      </div>
+    </div>
+  </div>
+</div>

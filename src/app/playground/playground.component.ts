@@ -9,7 +9,7 @@ export class PlaygroundComponent implements OnInit {
   listOfGames: {name: string, routing: string}[] = [
     {name: "Quiz Game", routing: "quiz"},
     {name: "Vua Tieng Viet", routing: "vua-tieng-viet"},
-    {name: "Quiz Game", routing: "quiz"},
+    {name: "Hunting snake", routing: "hunting-snake"},
     {name: "Quiz Game", routing: "quiz"},
     {name: "Quiz Game", routing: "quiz"},
     {name: "Quiz Game", routing: "quiz"},
