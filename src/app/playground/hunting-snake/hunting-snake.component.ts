@@ -175,7 +175,7 @@ export class HuntingSnakeComponent implements OnInit {
   }
 
   checkDeath() {
-    this.gameOver = this.outsideGrid(this.snakeBody[0] || this.onSnake(this.snakeBody[0], { ignoreHead: true }));
+    this.gameOver = this.outsideGrid(this.snakeBody[0]) || this.onSnake(this.snakeBody[0], { ignoreHead: true });
     if(!this.gameOver) return;
     this.gameBoard.nativeElement.classList.add("blur");
   }
