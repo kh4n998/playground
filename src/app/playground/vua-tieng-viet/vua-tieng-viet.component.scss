@@ -42,9 +42,14 @@
   text-transform: uppercase;
   border: #cecece 2px solid;
   width: 100%;
+  outline: none;
   box-shadow: none;
   &:focus-visible {
-    border: #0d6efd 2px solid;
+    border-color: #0d6efd;
+  }
+  &.correct {
+    border-color: #198754;
+    background-color: rgba($color: #198754, $alpha: 0.1);
   }
 }
 .quiz__body,

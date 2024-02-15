@@ -10,9 +10,6 @@ export class PlaygroundComponent implements OnInit {
     {name: "Quiz Game", routing: "quiz"},
     {name: "Vua Tieng Viet", routing: "vua-tieng-viet"},
     {name: "Hunting snake", routing: "hunting-snake"},
-    {name: "Quiz Game", routing: "quiz"},
-    {name: "Quiz Game", routing: "quiz"},
-    {name: "Quiz Game", routing: "quiz"},
   ]
   constructor() { }
 

@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 
 interface QuizVTV {
   answer: string;
-  hint: string;
+  hint?: string;
+  // correct: boolean;
 }
 
 @Component({
@@ -12,7 +13,7 @@ interface QuizVTV {
   styleUrls: ['./vua-tieng-viet.component.scss']
 })
 export class VuaTiengVietComponent implements OnInit {
-  timeLeft: number = 30;
+  timeLeft: number = 10;
   currentQuiz!: QuizVTV;
   quizStep: string = "box_rules";
   userAnswer: string = "";
@@ -20,46 +21,55 @@ export class VuaTiengVietComponent implements OnInit {
   listOfQuiz: QuizVTV[] = [
     {
       answer: "LỌ CỒN",
-      hint: "Vừa đau vừa sạch"
     },
     {
       answer: "ĐOÀN TỤ",
-      hint: "Một cặp đôi gặp nhau sau một quãng thời gian dài yêu xa"
     },
     {
       answer: "MỨT CÓC",
-      hint: "Một số người cho rằng nó ngon, một số người thì không"
     },
     {
       answer: "NỒI CÁ LÓC",
-      hint: "Vô nhà bà Tám ở Cần Thơ hỏi xin ăn"
     },
     {
       answer: "ĐIỆN ẢNH",
-      hint: "Ngành công nghiệp không khói"
     },
     {
       answer: "MẶC CẢM",
-      hint: "Thể hiện suy nghĩ tiêu cực"
     },
     {
       answer: "KIỆT SỨC",
-      hint: "Trạng thái năng lượng thấp"
     },
     {
       answer: "CÁI BÓNG",
-      hint: "Nhìn giống con voi, to như con voi, có vòi có mũi, nhưng lại đen thui"
     },
     {
       answer: "CON LƯỜI",
-      hint: "Những ánh mắt ngô nghê, những nụ cười ngờ nghệch"
     },
     {
       answer: "LÁNH VÀO ĐỒN",
-      hint: "Chạy nhanh đi trước khi mọi chuyện tồi tệ hơn"
+    },
+    {
+      answer: "HÀ THỦ Ô",
+    },
+    {
+      answer: "CAU CÓ",
+    },
+    {
+      answer: "BÀN CHẢI",
+    },
+    {
+      answer: "CHUA CAY",
+    },
+    {
+      answer: "CON CÁO",
+    },
+    {
+      answer: "BÚN CUA",
     },
   ];
   countdownTimer: any;
+  checked = false;
   constructor(
     private router: Router
   ) { }
@@ -79,6 +89,7 @@ export class VuaTiengVietComponent implements OnInit {
       this.timeLeft--;
       if (this.timeLeft === 0) {
         clearInterval(this.countdownTimer);
+        setTimeout(() => this.changeWord(), 1000)
       }
     }, 1000)
   }
@@ -94,20 +105,22 @@ export class VuaTiengVietComponent implements OnInit {
 
   checkAnswer() {
     clearInterval(this.countdownTimer);
+    this.checked = true;
     if (this.timeLeft > 0 && this.userAnswer.toLowerCase() === this.currentQuiz.answer.toLowerCase()) {
-      this.listOfQuiz.splice(this.listOfQuiz.indexOf(this.currentQuiz), 1)
+      this.listOfQuiz.splice(this.listOfQuiz.indexOf(this.currentQuiz), 1);
     }
   }
 
   changeWord() {
     clearInterval(this.countdownTimer);
+    this.checked = false;
     const index = Math.floor(Math.random() * this.listOfCharacters.length);
     const newQuiz = this.listOfQuiz[index];
     this.userAnswer = "";
     if (this.currentQuiz.answer !== newQuiz.answer) {
       this.currentQuiz = newQuiz;
       this.listOfCharacters = this.shuffleCharacter();
-      this.timeLeft = 30;
+      this.timeLeft = 10;
       this.countdown();
     } else {
       this.changeWord();

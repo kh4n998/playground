@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, fromEvent } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 type TPosition = {
   x: number,
@@ -27,6 +27,7 @@ export class HuntingSnakeComponent implements OnInit {
   lastRenderTime: number = 0;
   currScore: number = 0;
   newSegments = 0;
+  moving: boolean = false;
   constructor(
     private router: Router
   ) { }
@@ -196,6 +197,9 @@ export class HuntingSnakeComponent implements OnInit {
 
   resetGame() {
     this.snakeBody = [{x: 3, y: 1},{x: 2, y: 1},{x: 1, y: 1}];
+    this.lastInputDirection = { x: 1, y: 0 };
+    this.inputDirection = { x: 1, y: 0 };
+    this.moving = false;
     this.pauseGame();
     this.draw();
   }
@@ -204,11 +208,12 @@ export class HuntingSnakeComponent implements OnInit {
   pauseGame(value = true) {
     this.paused = value;
     if (!value) {
+      this.moving = true;
       window.requestAnimationFrame(this.startGame.bind(this))
     }
   }
 
   exitGame() {
-    this.router.navigate(["/playground"])
+    this.router.navigate(["../"])
   }
 }

@@ -214,7 +214,7 @@ export class QuizGameComponent implements OnInit {
   }
 
   exitQuiz() {
-    this.router.navigate(["/playground"])
+    this.router.navigate(["../"])
   }
 
   completeQuiz() {

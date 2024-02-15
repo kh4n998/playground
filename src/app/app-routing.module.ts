@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'playground',
+    path: '',
     loadChildren: () => import("./playground/playground.module").then(m => m.PlaygroundModule)
   },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'playground'
-  }
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'playground'
+  // }
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@
       </ol>
       <div class="group-controls justify-content-end">
         <button class="control" (click)="exitGame()">Exit</button>
-      <button class="control" (click)="pauseGame(false)">Start</button>
+      <button class="control" (click)="pauseGame(false)">{{moving ? 'Play' : 'Start'}}</button>
       </div>
     </div>
   </div>

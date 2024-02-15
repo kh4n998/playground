@@ -1,4 +1,4 @@
-<div class="playground__container bg-info" [ngSwitch]="quizStep">
+<div class="playground__container bg-secondary" [ngSwitch]="quizStep">
   <ng-container *ngSwitchCase="'box_quiz'">
     <div class="quiz__wrapper">
       <div class="quiz__header">
@@ -13,11 +13,11 @@
         <!-- <div class="quiz__hint">
           Gợi ý: {{currentQuiz.hint}}
         </div> -->
-        <div class="quiz__timer {{timeLeft <= 10 ? 'danger__time' : ''}}">
+        <div class="quiz__timer {{timeLeft <= 5 ? 'danger__time' : ''}}">
           Thời hạn: {{timeLeft < 10 ? '0' + timeLeft : timeLeft}}s
         </div>
         <div class="quiz__input">
-          <input type="text" name="answer" [disabled]="timeLeft <= 0" [(ngModel)]="userAnswer"
+          <input type="text" name="answer" [class.correct]="checked && userAnswer.toLowerCase() === currentQuiz.answer.toLowerCase()" [disabled]="checked" [(ngModel)]="userAnswer"
             (change)="checkAnswer()">
         </div>
       </div>
@@ -34,8 +34,9 @@
       </div>
       <div class="rules__body">
         <ul class="rules__list-decimal">
-          <li>Bạn có <strong class="text-primary">30 giây</strong> để suy nghĩ và trả lời.</li>
+          <li>Bạn có <strong class="text-primary">10 giây</strong> để suy nghĩ và trả lời.</li>
           <li>Khi hết thời gian, ô nhập sẽ bị vô hiệu hóa.</li>
+          <li>Nhấn Enter để kiểm tra đáp án của bạn.</li>
           <li>Bạn có thể gặp lại câu hỏi chưa hoành thành ở lần đổi từ tiếp theo.</li>
         </ul>
       </div>
