@@ -64,7 +64,7 @@ export class NhanhNhuChopComponent implements OnInit {
   getQuiz() {
     this.timeLeft = 10;
     this.firstNumber = this.genRandomNumber();
-    this.secondNumber = this.genRandomNumber(this.firstNumber);
+    this.secondNumber = this.genRandomNumber(this.firstNumber + 5);
     this.currentOperator = this.operators[Math.floor(Math.random() * this.operators.length)];
     this.genAnswers();
     this.countdown();

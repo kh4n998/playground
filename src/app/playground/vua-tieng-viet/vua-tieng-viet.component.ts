@@ -13,7 +13,7 @@ interface QuizVTV {
   styleUrls: ['./vua-tieng-viet.component.scss']
 })
 export class VuaTiengVietComponent implements OnInit {
-  timeLeft: number = 10;
+  timeLeft: number = 20;
   currentQuiz!: QuizVTV;
   quizStep: string = "box_rules";
   userAnswer: string = "";
@@ -67,6 +67,15 @@ export class VuaTiengVietComponent implements OnInit {
     {
       answer: "BÚN CUA",
     },
+    {
+      answer: "CUNG ĐIỆN",
+    },
+    {
+      answer: "GÂY CHIẾN",
+    },
+    {
+      answer: "BỒ NÔNG",
+    }
   ];
   countdownTimer: any;
   checked = false;
@@ -127,7 +136,7 @@ export class VuaTiengVietComponent implements OnInit {
     if (this.currentQuiz?.answer !== newQuiz.answer) {
       this.currentQuiz = newQuiz;
       this.listOfCharacters = this.shuffleCharacter();
-      this.timeLeft = 10;
+      this.timeLeft = 20;
       this.countdown();
     } else {
       this.changeWord();
