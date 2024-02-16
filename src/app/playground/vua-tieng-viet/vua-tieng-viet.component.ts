@@ -88,7 +88,7 @@ export class VuaTiengVietComponent implements OnInit {
 
   beginQuiz() {
     this.quizStep = "box_quiz";
-    this.currentQuiz = this.listOfQuiz[0];
+    this.currentQuiz = this.listOfQuiz[Math.floor(Math.random()*this.listOfQuiz.length)];
     this.listOfCharacters = this.shuffleCharacter();
     this.countdown();
   }
