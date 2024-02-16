@@ -1,4 +1,4 @@
-<div class="playground__container bg-info" [ngSwitch]="quizStep">
+<div class="playground__container bg-success" [ngSwitch]="quizStep">
   <ng-container *ngSwitchCase="'box_quiz'">
     <div class="quiz__wrapper">
       <div class="quiz__header progress__line" style="--width: {{timeline}}px; --clr: {{timeLeft > 5 ? '#0d6efd' : '#dc3545'}}">
@@ -23,9 +23,9 @@
         <div class="me-auto" style="line-height: 38px;">
           {{quizCount}} of {{listOfQuiz.length}} questions
         </div>
-        <button class="btn btn-outline-secondary" (click)="back()">Exit</button>
-        <button class="btn btn-primary" *ngIf="quizCount < listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="showTheNext()">Next quiz</button>
-        <button class="btn btn-primary" *ngIf="quizCount === listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="completeQuiz()">View score</button>
+        <button class="btn btn-outline-secondary" (click)="back()">Exit game</button>
+        <button class="btn btn-primary ms-3" *ngIf="quizCount < listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="showTheNext()">Next quiz</button>
+        <button class="btn btn-primary ms-3" *ngIf="quizCount === listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="completeQuiz()">View score</button>
       </div>
     </div>
   </ng-container>
@@ -39,12 +39,11 @@
           <li>You have only <strong class="text-primary">15 seconds</strong> for each questions.</li>
           <li>Once you select your answer. It can't be undone.</li>
           <li>You can't select any option once time goes off.</li>
-          <li>You can't exit from the Quiz while you're playing.</li>
           <li>You'll get points on the basis of your correct answers.</li>
         </ul>
       </div>
       <div class="rules__footer">
-        <button class="btn btn-outline-secondary me-3" (click)="exitQuiz()">Exit quiz</button>
+        <button class="btn btn-outline-secondary me-3" (click)="back()">Exit game</button>
         <button class="btn btn-primary" (click)="beginQuiz()">Continue</button>
       </div>
     </div>
@@ -91,10 +90,10 @@
           </g>
         </svg>
         <h4>You've completed the Quiz!</h4>
-        <div>and {{score > 3 ? 'congrats! You' : score > 1 ? 'nice, you' : 'sorry, you'}} got <b>{{ score }}</b> out of <b>{{listOfQuiz.length}}</b></div>
+        <div>and {{score > 7 ? 'congrats! You' : score > 1 ? 'nice, you' : 'sorry, you'}} got <b>{{ score }}</b> out of <b>{{listOfQuiz.length}}</b></div>
       </div>
       <div class="score__footer">
-        <button class="btn btn-outline-secondary me-3" (click)="exitQuiz()">Exit quiz</button>
+        <button class="btn btn-outline-secondary me-3" (click)="back()">Exit game</button>
         <button class="btn btn-primary" (click)="beginQuiz()">Replay quiz</button>
       </div>
     </div>

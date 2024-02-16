@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Answer, Quiz } from 'src/app/_common/const';
 
-interface Answer {
-  label: string;
-  correct: boolean;
-  selected: boolean;
-}
-interface Quiz {
-  index: number;
-  question: string;
-  option: Answer[];
-}
 @Component({
   selector: 'app-quiz-game',
   templateUrl: './quiz-game.component.html',
@@ -152,7 +143,153 @@ export class QuizGameComponent implements OnInit {
           selected: false,
         },
       ]
-    }
+    },
+    {
+      index: 6,
+      question: "Inside which HTML element do we put the JavaScript?",
+      option: [
+        {
+          label: "script",
+          correct: true,
+          selected: false,
+        },
+        {
+          label: "javascript",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "JS",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "link",
+          correct: false,
+          selected: false,
+        },
+      ]
+    },
+    {
+      index: 7,
+      question: "What is jQuery?",
+      option: [
+        {
+          label: "A framework",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "A library",
+          correct: true,
+          selected: false,
+        },
+        {
+          label: "Function",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "None of these",
+          correct: false,
+          selected: false,
+        },
+      ]
+    },
+    {
+      index: 8,
+      question: "'margin: 5px 10px 3px 8px;'. What value is given for the left margin?",
+      option: [
+        {
+          label: "5px",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "10px",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "8px",
+          correct: true,
+          selected: false,
+        },
+        {
+          label: "3px",
+          correct: false,
+          selected: false,
+        }
+      ]
+    },
+    {
+      index: 9,
+      question: "Which of the following function of String object returns the character at the specified index?",
+      option: [
+        {
+          label: "charAt()",
+          correct: true,
+          selected: false,
+        },
+        {
+          label: "charCodeAt()",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "concat()",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "indexOf()",
+          correct: false,
+          selected: false,
+        }
+      ]
+    },
+    {
+      index: 10,
+      question: "Which is not a Typescript data type?",
+      option: [
+        {
+          label: "boolean",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "undefined",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "unknown",
+          correct: false,
+          selected: false,
+        },
+        {
+          label: "double",
+          correct: true,
+          selected: false,
+        }
+      ]
+    },
+    {
+      index: 11,
+      question: "HTML ID's can only be used once",
+      option: [
+        {
+          label: "True",
+          correct: true,
+          selected: false,
+        },
+        {
+          label: "False",
+          correct: false,
+          selected: false,
+        }
+      ]
+    },
   ]
   quizCount: number = 1;
   timeline: number = 0;
@@ -211,10 +348,6 @@ export class QuizGameComponent implements OnInit {
     this.quizStep = "box_quiz";
     this.currentQuiz = this.listOfQuiz[0];
     this.countdown();
-  }
-
-  exitQuiz() {
-    this.router.navigate(["../"])
   }
 
   completeQuiz() {

@@ -178,6 +178,8 @@ export class HuntingSnakeComponent implements OnInit {
     this.gameOver = this.outsideGrid(this.snakeBody[0]) || this.onSnake(this.snakeBody[0], { ignoreHead: true });
     if(!this.gameOver) return;
     this.gameBoard.nativeElement.classList.add("blur");
+    this.paused = true;
+    this.moving = false;
   }
 
 
@@ -196,19 +198,25 @@ export class HuntingSnakeComponent implements OnInit {
   }
 
   resetGame() {
+    this.getDefaultPosition();
+    this.pauseGame();
+  }
+
+
+  getDefaultPosition() {
     this.snakeBody = [{x: 3, y: 1},{x: 2, y: 1},{x: 1, y: 1}];
     this.lastInputDirection = { x: 1, y: 0 };
     this.inputDirection = { x: 1, y: 0 };
     this.moving = false;
-    this.pauseGame();
+    this.gameBoard.nativeElement.classList.remove("blur");
+    this.gameOver = false;
     this.draw();
   }
-
 
   pauseGame(value = true) {
     this.paused = value;
     if (!value) {
-      this.moving = true;
+      this.getDefaultPosition();
       window.requestAnimationFrame(this.startGame.bind(this))
     }
   }

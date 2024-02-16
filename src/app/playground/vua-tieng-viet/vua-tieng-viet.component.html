@@ -17,13 +17,14 @@
           Thời hạn: {{timeLeft < 10 ? '0' + timeLeft : timeLeft}}s
         </div>
         <div class="quiz__input">
-          <input type="text" name="answer" [class.correct]="checked && userAnswer.toLowerCase() === currentQuiz.answer.toLowerCase()" [disabled]="checked" [(ngModel)]="userAnswer"
-            (change)="checkAnswer()">
+          <input type="text" name="answer" [ngClass]="{'correct': checked && userAnswer.toLowerCase() === currentQuiz.answer.toLowerCase(), 'incorrect': checked && userAnswer.toLowerCase() !== currentQuiz.answer.toLowerCase()}" [disabled]="checked" [(ngModel)]="userAnswer"
+            (change)="submit()">
         </div>
       </div>
       <div class="quiz__footer">
         <button class="btn btn-outline-secondary me-3" (click)="exitGame()">Thoát</button>
-        <button class="btn btn-primary" (click)="changeWord()">Đổi từ</button>
+        <button class="btn btn-primary" *ngIf="userAnswer" (click)="submit()">Kiểm tra</button>
+        <button class="btn btn-primary" *ngIf="!userAnswer" (click)="changeWord()">Đổi từ</button>
       </div>
     </div>
   </ng-container>

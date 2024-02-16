@@ -89,9 +89,16 @@ export class VuaTiengVietComponent implements OnInit {
       this.timeLeft--;
       if (this.timeLeft === 0) {
         clearInterval(this.countdownTimer);
-        setTimeout(() => this.changeWord(), 1000)
+        this.submit();
       }
     }, 1000)
+  }
+
+  submit() {
+    if (this.userAnswer) {
+      this.checkAnswer();
+    }
+    setTimeout(() => this.changeWord(), 1000)
   }
 
   shuffleCharacter(): string[] {
@@ -117,7 +124,7 @@ export class VuaTiengVietComponent implements OnInit {
     const index = Math.floor(Math.random() * this.listOfCharacters.length);
     const newQuiz = this.listOfQuiz[index];
     this.userAnswer = "";
-    if (this.currentQuiz.answer !== newQuiz.answer) {
+    if (this.currentQuiz?.answer !== newQuiz.answer) {
       this.currentQuiz = newQuiz;
       this.listOfCharacters = this.shuffleCharacter();
       this.timeLeft = 10;
