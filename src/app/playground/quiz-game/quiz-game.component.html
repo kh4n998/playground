@@ -1,7 +1,7 @@
 <div class="playground__container bg-success" [ngSwitch]="quizStep">
   <ng-container *ngSwitchCase="'box_quiz'">
     <div class="quiz__wrapper">
-      <div class="quiz__header progress__line" style="--width: {{timeline}}px; --clr: {{timeLeft > 5 ? '#0d6efd' : '#dc3545'}}">
+      <div class="quiz__header">
         <h4 class="me-auto mb-0">Quiz game</h4>
         <div class="quiz__timer {{timeLeft < 6 ? 'danger__time' : ''}}">
           <span class="fw-medium me-auto">Time left:</span>
@@ -20,12 +20,12 @@
         </div>
       </div>
       <div class="quiz__footer">
-        <div class="me-auto" style="line-height: 38px;">
+        <div class="me-auto d-inline-block" style="line-height: 38px;">
           {{quizCount}} of {{listOfQuiz.length}} questions
         </div>
-        <button class="btn btn-outline-secondary" (click)="back()">Exit game</button>
+        <button class="btn btn-outline-secondary" (click)="back()">Exit</button>
         <button class="btn btn-primary ms-3" *ngIf="quizCount < listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="showTheNext()">Next quiz</button>
-        <button class="btn btn-primary ms-3" *ngIf="quizCount === listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="completeQuiz()">View score</button>
+        <button class="btn btn-primary ms-3" *ngIf="quizCount === listOfQuiz.length && (chosenOption || timeLeft <= 0)" (click)="completeQuiz()">Complete</button>
       </div>
     </div>
   </ng-container>

@@ -294,7 +294,6 @@ export class QuizGameComponent implements OnInit {
   quizCount: number = 1;
   timeline: number = 0;
   countdownTimer: any;
-  calculateProcessing: any;
   constructor(
     private router: Router
   ) { }
@@ -309,17 +308,10 @@ export class QuizGameComponent implements OnInit {
         clearInterval(this.countdownTimer);
       }
     }, 1000)
-    this.calculateProcessing = setInterval(() => {
-      this.timeline += 1;
-      if (this.timeline >= 600) {
-        clearInterval(this.calculateProcessing);
-      }
-    }, 25)
   }
 
   checkAnswer(option: Answer) {
     clearInterval(this.countdownTimer);
-    clearInterval(this.calculateProcessing);
     option.selected = true;
     this.chosenOption = true;
     if (option.correct) {

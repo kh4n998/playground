@@ -1,0 +1,46 @@
+<!-- <div class="playground__container bg-secondary" [ngSwitch]="quizStep">
+  <ng-container *ngSwitchCase="'box_quiz'">
+    <div class="quiz__wrapper">
+      <div class="quiz__header">
+        <h4 class="mb-0">Vua tiếng Việt</h4>
+      </div>
+      <div class="quiz__body">
+        <div class="quiz__question">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'box_rules'">
+    <div class="rules__wrapper">
+      <div class="rules__header">
+        <h4 class="mb-0">Puzzle</h4>
+      </div>
+      <div class="rules__body">
+        <ul class="rules__list-decimal">
+          <li>Bạn có <strong class="text-primary">20 giây</strong> để suy nghĩ và trả lời.</li>
+          <li>Khi hết thời gian, ô nhập sẽ bị vô hiệu hóa.</li>
+          <li>Nhấn Enter để kiểm tra đáp án của bạn.</li>
+          <li>Bạn có thể gặp lại câu hỏi chưa hoành thành ở lần đổi từ tiếp theo.</li>
+        </ul>
+      </div>
+      <div class="rules__footer">
+        <button class="btn btn-outline-secondary me-3" (click)="exitGame()">Thoát</button>
+        <button class="btn btn-primary" (click)="beginQuiz()">Bắt đầu</button>
+      </div>
+    </div>
+  </ng-container>
+</div> -->
+
+
+<input type="file" name="image" accept="image/png,image/jpeg,image/jpg" id="img" (change)="uploadFile($event)">
+<div class="cover-screen">
+  <p id="result"></p>
+  <button id="start-button">Start Game</button>
+</div>
+<div id="moves"></div>
+<div class="slider-game">
+  <div class="container"></div>
+  <div class="original-image">
+    <img src="original_image.png" alt="" />
+  </div>
+</div>

@@ -8,8 +8,9 @@ import { Answer } from 'src/app/_common/const';
   styleUrls: ['./nhanh-nhu-chop.component.scss']
 })
 export class NhanhNhuChopComponent implements OnInit {
-  timeLeft: number = 10;
+  timeLeft: number = 5;
   quizStep: string = "box_rules";
+  numberOfQuiz: number = 0;
   score: number = 0;
   chosenOption: boolean = false;
   listAnswers: Answer[] = [];
@@ -62,7 +63,8 @@ export class NhanhNhuChopComponent implements OnInit {
   }
 
   getQuiz() {
-    this.timeLeft = 10;
+    this.timeLeft = 5;
+    this.numberOfQuiz++;
     this.firstNumber = this.genRandomNumber();
     this.secondNumber = this.genRandomNumber(this.firstNumber + 5);
     this.currentOperator = this.operators[Math.floor(Math.random() * this.operators.length)];

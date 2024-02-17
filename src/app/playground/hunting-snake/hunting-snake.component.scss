@@ -24,8 +24,14 @@
   background-color: rgba($color: #fff, $alpha: 0.5);
 }
 .playground__container.vertical__gb {
-  flex-direction: row;
-  gap: 4rem;
+  flex-direction: row-reverse;
+  gap: 2rem;
+}
+@media screen and (min-width: 992px) {
+  .playground__container.vertical__gb {
+    flex-direction: row;
+    gap: 4rem;
+  }
 }
 .score__block {
   font-weight: 700;

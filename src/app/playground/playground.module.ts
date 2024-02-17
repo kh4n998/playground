@@ -8,6 +8,7 @@ import { VuaTiengVietComponent } from './vua-tieng-viet/vua-tieng-viet.component
 import { FormsModule } from '@angular/forms';
 import { NhanhNhuChopComponent } from './nhanh-nhu-chop/nhanh-nhu-chop.component';
 import { HuntingSnakeComponent } from './hunting-snake/hunting-snake.component';
+import { PuzzleComponent } from './puzzle/puzzle.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HuntingSnakeComponent } from './hunting-snake/hunting-snake.component';
     QuizGameComponent,
     VuaTiengVietComponent,
     NhanhNhuChopComponent,
-    HuntingSnakeComponent
+    HuntingSnakeComponent,
+    PuzzleComponent
   ],
   imports: [
     CommonModule,

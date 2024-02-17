@@ -5,6 +5,7 @@ import { QuizGameComponent } from './quiz-game/quiz-game.component';
 import { VuaTiengVietComponent } from './vua-tieng-viet/vua-tieng-viet.component';
 import { HuntingSnakeComponent } from './hunting-snake/hunting-snake.component';
 import { NhanhNhuChopComponent } from './nhanh-nhu-chop/nhanh-nhu-chop.component';
+import { PuzzleComponent } from './puzzle/puzzle.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'mathematical',
     component: NhanhNhuChopComponent
+  },
+  {
+    path: 'puzzle',
+    component: PuzzleComponent
   },
 ];
 

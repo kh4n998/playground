@@ -3,9 +3,9 @@
     <div class="quiz__wrapper">
       <div class="quiz__header">
         <h4 class="me-auto mb-0">Quiz game</h4>
-        <div class="quiz__timer {{timeLeft < 6 ? 'danger__time' : ''}}">
+        <div class="quiz__timer {{timeLeft < 4 ? 'danger__time' : ''}}">
           <span class="fw-medium me-auto">Time left:</span>
-          <span class="fw-semi-bold">{{timeLeft < 10 ? '0' + timeLeft : timeLeft}}s</span>
+          <span class="fw-semi-bold">{{'0' + timeLeft}}s</span>
         </div>
       </div>
       <div class="quiz__body">
@@ -24,10 +24,10 @@
         </div>
       </div>
       <div class="quiz__footer">
-        <div class="me-auto" style="line-height: 38px;">
-          <div>Score: <b>{{score}}</b></div>
+        <div class="me-auto d-inline-block" style="line-height: 38px;">
+          <div>Score: <b>{{score}}</b>/{{numberOfQuiz}}</div>
         </div>
-        <button class="btn btn-outline-secondary" (click)="back()">Exit game</button>
+        <button class="btn btn-outline-secondary" (click)="back()">Exit</button>
         <button class="btn btn-primary ms-3" (click)="getQuiz()">Next quiz</button>
       </div>
     </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="rules__body">
         <ul class="rules__list-decimal">
-          <li>You have only <strong class="text-primary">10 seconds</strong> for each questions.</li>
+          <li>You have only <strong class="text-primary">05 seconds</strong> for each questions.</li>
           <li>Once you select your answer. It can't be undone.</li>
           <li>You can't select any option once time goes off.</li>
           <li>You'll get points on the basis of your correct answers.</li>
